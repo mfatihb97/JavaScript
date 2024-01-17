@@ -1,46 +1,42 @@
 //new Task
 function addTask(){
-    var data = document.getElementById("task").value;
+    let data = document.getElementById("task").value;
 
     if(data.trim() === ""){
         alert("You can't enter empty line!")
         return;
     }
 
-    var list = document.getElementById("list");
-    var newTask = document.createElement("li");    
+    let list = document.getElementById("list");
+    let newTask = document.createElement("li");    
     newTask.appendChild(document.createTextNode(data));
     newTask.onclick = function(){
         toggleTask(this);
     };
     
-    
-
-    var deleteButton = document.createElement("button");
+    let deleteButton = document.createElement("button");
     deleteButton.classList.add("deleteButton");    
     deleteButton.appendChild(document.createTextNode("X"));
     deleteButton.onclick = function(){
-        list.removeChild(newTask);
-        alert("Task has been deleted from the list")              
+        list.removeChild(newTask);                  
        
     }    
     
     newTask.appendChild(deleteButton);
     list.appendChild(newTask);
 
-    document.getElementById("task").value="";
-    
-    alert("New task has been added to the list!", 'success');    
+    document.getElementById("task").value="";    
+     
     
 }
 
 //old List
 
-var listElements = document.querySelectorAll("#list li");
+let listElements = document.querySelectorAll("#list li");
 
 listElements.forEach(function(element){
 
-    var deleteButton = document.createElement("button");
+    let deleteButton = document.createElement("button");
     deleteButton.classList.add("deleteButton");
     deleteButton.appendChild(document.createTextNode("X"));
 
